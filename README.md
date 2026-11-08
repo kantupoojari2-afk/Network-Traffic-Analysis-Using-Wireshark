@@ -1,56 +1,31 @@
-
 # Network Traffic Analysis Using Wireshark
 
 ## Project Overview
-This project focuses on analyzing network traffic using Wireshark. The goal is to understand how computers communicate over a network by capturing and examining packets.
+This project analyzes network traffic with Wireshark to understand how computers communicate. It covers DNS resolution, TCP connection setup and teardown, UDP traffic, TLS encryption, ICMP, and clear-text HTTP.
 
 ## Objectives
 - Understand DNS resolution.
-- Analyze TCP communication.
-- Observe TLS/HTTPS traffic.
+- Analyze the TCP three-way handshake and connection teardown.
+- Observe TLS handshake and encrypted HTTPS traffic.
+- Compare encrypted (HTTPS) and clear-text (HTTP) traffic.
+- Identify UDP traffic and its role in DNS and QUIC.
 - Identify source and destination IP addresses.
 - Learn basic network protocols.
 
 ## Tools Used
-- Wireshark
-- Windows or Linux
-- Web Browser
+- Wireshark [version]
+- [Windows / Linux / macOS] [version]
+- Web browser
 
 ## Protocol Filters
 | Filter | Purpose |
 |--------|---------|
-| dns | Analyze DNS queries and responses |
-| tcp | Examine TCP packets |
-| tls | Observe encrypted TLS traffic |
-| icmp | Analyze ping traffic |
+| `dns` | Analyze DNS queries and responses |
+| `tcp` | Examine TCP handshake, data, and teardown |
+| `udp` | Examine UDP traffic such as DNS and QUIC |
+| `tls.handshake.type == 1` | Find the TLS Client Hello and server name (SNI) |
+| `tls.handshake.type == 2` | Find the TLS Server Hello and chosen cipher suite |
+| `icmp` | Analyze ping request and reply traffic |
+| `http` | View clear-text HTTP requests and responses |
 
-## Practical Steps
-1. Open Wireshark.
-2. Select your active network interface.
-3. Start capturing packets.
-4. Visit https://example.com.
-5. Stop the capture.
-6. Apply DNS, TCP, and TLS filters.
-7. Observe the packet details.
-
-## Analysis
-DNS translates domain names into IP addresses.
-
-TCP provides reliable communication between computers.
-
-TLS encrypts HTTPS communication to protect data.
-
-## Results
-The captured traffic was analyzed to understand DNS resolution, TCP communication, and encrypted HTTPS traffic.
-
-Actual packet observations and screenshots will be added after performing the capture.
-
-## Conclusion
-This project helps develop practical knowledge of networking protocols and packet analysis using Wireshark.
-
-## Author
-Laxmikant Siddaram Poojari
-
-B.E. Computer Science and Engineering
-
-Moodlakatte Institute of Technology
+## Repository Structure
